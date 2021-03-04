@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
-import Menu from './components/MenuComponent' ;
-import './components/DishDetailComponent'
-import { DISHES } from './shared/dishes' ;
+import Menu from './MenuComponent' ;
+import { DISHES } from '../shared/dishes' ;
+import DishDetail from './DishDetailComponent';
 
 //function App() 
-class App extends Component {
+class Main extends Component {
 
     constructor(props) {
       super(props) ;
 
       this.state = {
         // this dishes object will be passed child component "Menu"
-        dishes: DISHES
+        dishes: DISHES,
+        selectedDish: null
       }
 
     }
+    onDishSelect(dishId) {
+        this.setState({ selectedDish: dishId});
+    }
+
 
   render() {
       return (
@@ -26,10 +31,13 @@ class App extends Component {
            </div>
          </Navbar>
 
-         <Menu  dishes={this.state.dishes} />
+         <Menu  dishes={this.state.dishes}
+         onClick={(dishId)=> this.onDishSelect(dishId)} />
+        <DishDetail 
+        dish={this.state.dishes.filter((dish) => dish.id ===this.state.selectedDish )[0]}/>
         </div>
       );
    }
 }
 
-export default App;
+export default Main;

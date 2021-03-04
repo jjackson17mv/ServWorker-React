@@ -42,7 +42,7 @@ class DishDetails extends React.Component {
             return (
                 <div>
                     <li className="list-unstyled">{comment.comment}</li>
-                    <li className="list-unstyled">{"--" + comment.author + ", " + comment.date}</li>
+                    <li className="list-unstyled">{"--" + comment.author + ", " + {new:Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}}</li>
                 </div>
             )
         })
@@ -51,8 +51,11 @@ class DishDetails extends React.Component {
     }
 
     render() {
+        
         return this.renderDish(this.props.dish);
+       
     }
+    
 }
 
 export default DishDetails;
