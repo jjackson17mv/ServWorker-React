@@ -13,12 +13,12 @@ class Dishdetail extends Component {
     }
 
     onDishSelect(dish) {
-        //when user chooses a dish update state to "selectedDish to currebt dish"
+        
         this.setState({ selectedDish: dish })
     }
 
     renderDish() {
-        // make sure the selected dish is an existing dish
+        
         const dish = this.props.selectedDish
         if(dish != null) {
               return (

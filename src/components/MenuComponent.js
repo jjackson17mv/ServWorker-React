@@ -18,7 +18,7 @@ class Menu extends Component {
     }
 
     onDishSelect(dish) {
-        //when user chooses a dish update state to "selectedDish to currebt dish"
+       
         this.setState({ selectedDish: dish })
     }
     renderDish(dish) {
@@ -40,7 +40,7 @@ class Menu extends Component {
 
 
        render() {
-        // using props keyword we can use to map the array
+      
         const menu = this.props.dishes.map((dish) => {
             return (
                  <div  className="col-12 col-md-5 m-1">
