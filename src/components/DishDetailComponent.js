@@ -4,7 +4,7 @@ import {
     CardTitle
 } from 'reactstrap';
 
-class DishDetails extends React.Component {
+class DishDetail extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -42,7 +42,7 @@ class DishDetails extends React.Component {
             return (
                 <div>
                     <li className="list-unstyled">{comment.comment}</li>
-                    <li className="list-unstyled">{"--" + comment.author + ", " + {new:Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}}</li>
+                    <li className="list-unstyled">{"--" + comment.author}{new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</li>
                 </div>
             )
         })
@@ -58,4 +58,4 @@ class DishDetails extends React.Component {
     
 }
 
-export default DishDetails;
+export default DishDetail;
