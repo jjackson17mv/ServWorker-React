@@ -5,11 +5,17 @@ import {
 } from 'reactstrap';
 
 class DishDetail extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    
+    componentDidMount(){
+        console.log(" DishDetail Component actually did mount or invoked")
+      }
 
-    renderDish(dish) {
+      componentDidUpdate() {
+          console.log(' DishDeetail component did UPDATE')
+      }
+
+      renderDish(dish) {
+          console.log('RENDER DISH WORKS')
         if (dish != null)
             return (
                 <div className={"row"}>
@@ -37,7 +43,7 @@ class DishDetail extends React.Component {
     }
 
     renderCommments(dish){
-        console.log(dish);
+        console.log('RENDER COMMENTS WORK');
         const comments = dish.comments.map(comment => {
             return (
                 <div>
